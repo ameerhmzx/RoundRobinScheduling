@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Robin</title>
+    <!-- <link rel="icon" href="./assets/img/mini.png" type="image/png" sizes="16x16 32x32"> -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="bg-gray-100">
+    <!-- HEADING -->
+    <div class="text-4xl font-black text-center mt-8">Round Robin Scheduling</div>
+
+    <div class="grid lg:grid-cols-2 mt-8">
+
+        <!-- PROCESS SECTION -->
+        <div class="container mx-auto">
+            <div class="border lg:mr-4 lg:ml-8 pb-4 border-gray-300 bg-white sm:rounded-lg shadow-lg mb-4 lg:mb-8">
+                <!-- PROCESS LIST -->
+                <div id="process_input" class="flex flex-col items-center overflow-y-auto">
+                    <p class="text-2xl font-bold pt-4 text-center pb-8">Process List</p>
+                </div>
+                <!-- CONTOLS -->
+                <div class="flex flex-col mt-2 mb-4 items-center py-4 px-8">
+                    <div class="flex items-center justify-center">
+                        <label class="p-2">
+                            <span>Quantum</span>
+                            <input id="quantum" class="py-1 px-2 ml-2 w-16 border border-gray-500 rounded" value="2"
+                                type="number">
+                        </label>
+                        <!-- <label class="inline-flex items-center p-2">
+                            <input id="animate" type="checkbox" checked>
+                            <span class="ml-2">Animation</span>
+                        </label> -->
+                    </div>
+                    <div class="flex flex-wrap justify-center mt-4">
+                        <button
+                            class="py-2 px-4 text-white font-bold bg-red-700 hover:bg-red-800 hover:shadow-lg rounded m-2"
+                            onclick="reset()">Reset</button>
+                        <button
+                            class="py-2 px-4 text-white font-bold bg-blue-400 hover:bg-blue-700 hover:shadow-lg rounded m-2"
+                            onclick="addNewProcess()">Add Process</button>
+                        <button
+                        class="py-2 px-4 text-white font-bold bg-blue-400 hover:bg-blue-700 hover:shadow-lg rounded m-2"
+                        onclick="random()">Random</button>
+                        <button
+                            class="py-2 px-4 text-white font-bold bg-green-500 hover:bg-green-700 hover:shadow-lg rounded m-2"
+                            onclick="execute()">Execute</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- RESULT -->
+        <div class="container mx-auto">
+            <div class="sm:rounded-lg border lg:mr-8 lg:ml-4 lg:mt-0 mt-4 pb-8 mb-8 bg-white border-gray-300 shadow-lg py-4 px-8 ">
+                <p class="sticky top-0 bg-white w-full text-2xl font-bold text-center pb-4">Result</p>
+                <div class="flex justify-center">
+                    <table id="result_table" class="table-auto my-4">
+                        <tr>
+                            <th class="border border-black bg-gray-400 px-2">Process</th>
+                            <th class="border border-black bg-gray-400 px-2">Arrival Time</th>
+                            <th class="border border-black bg-gray-400 px-2">Response Time</th>
+                            <th class="border border-black bg-gray-400 px-2">Waiting Time</th>
+                            <th class="border border-black bg-gray-400 px-2">Turn Around Time</th>
+                        </tr>
+                    </table>
+                </div>
+                <div id="result_avgs" class="flex flex-col items-center mt-6 mb-12"></div>
+                <div id="result_chart" class="flex flex-wrap"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>
