@@ -65,7 +65,7 @@ function runRR(processQueue, quantum) {
             }
         }
         // switching context
-        if (readyQueue.length > 0 && quantumOffset >= quantum) {
+        if (readyQueue.length > 0 && quantumOffset >= quantum && quantumOffset%quantum == 0) {
             readyQueue.push(process);
             timeline.push(new TimeEvent(clock, process, EventsEnum.rearrived));
             process = null;
